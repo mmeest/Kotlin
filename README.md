@@ -13,7 +13,7 @@ Kotlin programming language
 - [Hello World](#hello-world)
 - [Variables](#variables)
 - [NULL safety](#null-safety)
-- [Iff/Else](#iff-else)
+- [Iff Else](#iff-else)
 - [When](#when)
 - [If Else When as Expression](#if-else-when-as-expression)
 - [Arrays](#arrays)
