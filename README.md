@@ -92,12 +92,19 @@ https://kotlinlang.org/docs/reference/basic-types.html \
 | Long  | 64            | -9,223,372,036,854,775,808 (-263) | 9,223,372,036,854,775,807 (263 - 1) |
 
 * Floating point numbers
+
 | Type   | Size (bits) | Significant bits | Exponent bits | Decimal digits |
 |--------|-------------|------------------|---------------|----------------|
-| Float  |	32         |	24              |	8             |	6-7            |
-| Double |	64         |	53              |	11            |	15-16          |
+| Float  | 32          | 24               | 8             | 6-7            |
+| Double | 64          | 53               | 11            | 15-16          |
 
+* Booleans
 
+**True** and **False**
+
+* Strings
+
+**String**
 
 
 Declaring variables with type:
