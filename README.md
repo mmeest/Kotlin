@@ -106,7 +106,6 @@ https://kotlinlang.org/docs/reference/basic-types.html \
 
 **String**
 
-
 Declaring variables with type:
 ```
 var number : Int = 42
@@ -121,6 +120,35 @@ val x: String
 x = 3
 ```
 
+**+** - for concatenating strings
+**$** - for inserting variables into string
 
+* Sample code:
+```
+val firstName : String = "John"     // val cannot be reasigned 
+var lastName : String = "Doe"       // var can be reasigned
 
+fun main(args: Array<String>){
+    lastName = "Scott"              // assigning new value to 'lastName' -
 
+    println(firstName)
+    println(lastName)
+
+    println(firstName + " " + lastName)   // '+' for concatenating strings
+
+    println("Hello " + firstName)           // concatenating string and variable 
+                                            // are not reccomanded in Kotlin
+    println("Hello $firstName $lastName")   // right way to concatenate string and variable
+}
+```
+
+## Null safety
+https://kotlinlang.org/docs/reference/null-safety.html
+
+By default all variables in Kotlin are Not NULL \
+**?** - operator to make variable nullable. For example:
+```
+val firstName : String? = null
+```
+
+**!!** - not-null assertion operator converts any value to a non-null type and throws an exception if the value is null.
