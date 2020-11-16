@@ -5,6 +5,22 @@
 # Kotlin
 Kotlin programming language
 
+## Contents
+
+- [Kotlin language support for VSCode](#kotlin-language-support-for-vscode)
+- [Code Runner for running different code snippets on VSCode](#code-runner-for-running-different-code-snippets-on-vscode)
+- [Comments](#comments)
+- [Hello World](#hello-world)
+- [Variables](#variables)
+- [NULL safety](#null-safety)
+- [Iff/Else](#iff-else)
+- [When](#when)
+- [If Else When as Expression](#if-else-when-as-expression)
+- [Arrays](#arrays)
+- [Loops](#loops)
+- [Functions](#functions)
+- [Lambda](#lambda)
+
 ## Kotlin language support for VSCode
 https://github.com/mathiasfrohlich/vscode-kotlin
 **Kotlin language** by mathiasfrohlich
@@ -61,6 +77,14 @@ https://github.com/JetBrains/kotlin/releases/download/v1.2.21/kotlin-compiler-1.
 2. Extract the contents of zip file into *c:/Program Files/kotlinc/*
 3. Copy path: *c:/Program Files/kotlinc/bin* to System Environment Variables PATH: \
 4. Before running Kotlin, VSCode needs restart
+
+## Comments
+// this is one line comment
+
+/* this
+is 
+multiline
+comment */
 
 ## Hello World
 1. Create new file named 'helloworld.kt'
@@ -142,7 +166,7 @@ fun main(args: Array<String>){
 }
 ```
 
-## Null safety
+## NULL safety
 https://kotlinlang.org/docs/reference/null-safety.html
 
 By default all variables in Kotlin are Not NULL \
@@ -152,3 +176,221 @@ val firstName : String? = null
 ```
 
 **!!** - not-null assertion operator converts any value to a non-null type and throws an exception if the value is null.
+
+## If Else
+https://kotlinlang.org/docs/tutorials/kotlin-for-py/conditionals.html
+
+In Kotlin there are 3 if/else conditions:
+* **if**
+* **else if**
+* **else**
+
+Code example:
+```
+var firstName : String? = null
+val age = 19
+
+fun main(args: Array<String>){
+    if(firstName != null)
+        println("Hello $firstName")     // nothing will be printed because firstName equals null
+
+    firstName = "John"
+
+    if(firstName != null)
+        println("Hello $firstName")     // output: Hello John
+
+
+    if(age >= 18){                      // condition if age is equal or greater than 18
+        print("Welcome $firstName")
+    }else{
+        print("You are not allowed to enter.")
+    }
+}
+```
+
+## When
+https://kotlinlang.org/docs/reference/control-flow.html
+
+**when** - is used if there are more than one condition to check \
+It is alternative version for Java switch statements.
+
+In Kotlin, if is an expression, i.e. it returns a value. Therefore there is no ternary operator (condition ? then : else), because ordinary if works fine in this role.
+```
+// Traditional usage 
+var max = a 
+if (a < b) max = b
+
+// With else 
+var max: Int
+if (a > b) {
+    max = a
+} else {
+    max = b
+}
+ 
+// As expression 
+val max = if (a > b) a else b
+```
+
+Example code:
+```
+fun main(args: Array<String>){
+    val userType = "admin"
+
+    when(userType){
+        "admin" -> {
+            println("Hello Admin")
+        }
+        "editor" -> {
+            println("Hello Editor")
+        }
+        "author" -> {
+            println("Hello Author")
+        }
+        else -> {
+            println("Hello Subscriber")
+        }
+    }
+}
+```
+
+## If Else When as Expression
+https://kotlinlang.org/docs/reference/control-flow.html
+
+Example code:
+```
+fun main(args: Array<String>){
+    val a = 10
+    val b = 20
+
+    val c = if(a > b) a else b      // condition will set max value to c
+
+    val userType = "admin"
+    val result = when(userType){
+        "admin" -> "User is Admin"
+        "editor" -> "User is Editor"
+        "author" -> "User is Author"
+        else -> "User is Subscriber"
+    }
+
+    println(c)                      // printout: 20
+    println(result)                 // printout: User is Admin
+}
+```
+
+## Arrays
+https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/
+
+Code example:
+```
+fun main(args: Array<String>){
+    val a : Array<Int> = arrayOf(2, 3, 4, 5)    // creating array
+    a[2]                                        // accessing third element of array
+    println(a[2])                               // printout: 4
+    
+    val x = Array(5){ 0 }   // 5 - num. of elements in array; 0 - initializer, all elements will be 0
+    for (element in x) {
+        println(element)    // print all elements in x array
+    }
+}
+```
+
+## Loops
+https://kotlinlang.org/docs/tutorials/kotlin-for-py/loops.html
+
+* **For loop**
+```
+val names = listOf("Anne", "Peter", "Jeff")
+for (name in names) {
+    println(name)
+}
+```
+
+* **While loop**
+```
+var x = 0
+while (x < 10) {
+    println(x)
+    x++ // Same as x += 1
+}
+```
+
+Code example:
+```
+fun main(args: Array<String>){
+    val a : Array<Int> = arrayOf(2, 3, 4, 5)    // creating array
+
+    for(x in 1..10){        // for loop
+        print("$x ")        // printout: 1 2 3 4 5 6 7 8 9 10
+    }
+    
+    var i = 1
+
+    while(i <= 10){         // while loop
+        print("$i ")
+        i += 2              // printout odd numbers: 1 3 5 7 9
+    }
+
+    do {                    // do whilw loop will get executed atleast once
+        print("$i ")
+        i += 2
+    } while (i <= 10)       // printout odd numbers: 1 3 5 7 9
+
+    for(y in a.indices){
+        print(a[y])       // printout: 2 3 4 5
+    }
+}
+```
+
+## Functions
+https://kotlinlang.org/docs/tutorials/kotlin-for-py/functions.html
+
+Functions are declared with the fun keyword. For the parameters, you must declare not only their names, but also their types, and you must declare the type of the value the function is intending to return. The body of the function is usually a block, which is enclosed in curly braces:
+
+```
+fun happyBirthday(name: String, age: Int): String {
+    return "Happy ${age}th birthday, $name!"
+}
+```
+
+Code example:
+```
+fun rollDice(){
+    val result = (1..6).random()    // get random value from range of 1-6
+    println(result)
+}
+
+fun rollDiceTwo(times: Int, range: IntRange){
+    for(i in 0 until times){
+        val result = range.random()
+        println(result)
+    }
+}
+
+fun main(args: Array<String>){
+    rollDice()                      // calling rollDice function
+    rollDice()
+
+    rollDiceTwo(4, (1..10))         // calling rollDiceTwo function with values
+}
+```
+
+## Lambda
+https://kotlinlang.org/docs/reference/lambdas.html
+
+Code example:
+```
+// Unit meaning that current function does not have return type
+fun rollDice(range: IntRange, time: Int, callback: () -> Unit){
+    for(i in 0 until time){
+        val result = range.random()
+        callback(result)
+    }
+}
+
+fun main(args: Array<String>){
+    rollDice(1..6, 4, { result ->
+        println(result)
+    })   
+}
+```
