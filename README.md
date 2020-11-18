@@ -17,6 +17,7 @@ Kotlin programming language
 - [When](#when)
 - [If Else When as Expression](#if-else-when-as-expression)
 - [Arrays](#arrays)
+- [Lists](#lists)
 - [Loops](#loops)
 - [Functions](#functions)
 - [Lambda](#lambda)
@@ -281,6 +282,34 @@ fun main(args: Array<String>){
 ## Arrays
 https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/
 
+Defining an Array in Kotlin: \
+**val interestingThings = arrayOf("Kotlin", "Programming", "Books")** \
+interestingThings.size          \\ Size of Array \
+interestingThings[0]            \\ accessing element in an Array \
+interestingThings.get(0)        \\ accessing element in an Array
+
+iterating thru Array: \
+for(interestingThing in interestingThings){ \
+        println(interestingThing) \
+}
+
+**forEach** - Kotlin function for iterating thru Arrays \
+**it** - default name for elements in ana Array in Kotlin \
+iterating thur Array with **forEach** \
+interestingThings.forEach{ \
+        println(it) \
+}
+
+Using custom element name 'interestingThing' for forEach in Kotlin \
+interestingThings.forEach{ interestingThing -> \
+        println(interestingThing) \
+}
+
+Iterating thru Array with item and index: \
+interestingThings.forEachIndexed{index, interestingThing -> \
+        println("$interestingThing is at index $index") \
+}
+
 Code example:
 ```
 fun main(args: Array<String>){
@@ -294,6 +323,16 @@ fun main(args: Array<String>){
     }
 }
 ```
+
+## Lists
+
+**Defyin a List:** \
+val interestingThings = listOf("Kotlin", "Programming", "Books")
+
+**Accessing element in a list**
+* interestingThings[0] \
+or \
+* interestingThings.get(0)
 
 ## Loops
 https://kotlinlang.org/docs/tutorials/kotlin-for-py/loops.html
@@ -345,6 +384,9 @@ fun main(args: Array<String>){
 ## Functions
 https://kotlinlang.org/docs/tutorials/kotlin-for-py/functions.html
 
+**fun** - keyword to declare function \
+**Unit** - no return type for function
+
 Functions are declared with the fun keyword. For the parameters, you must declare not only their names, but also their types, and you must declare the type of the value the function is intending to return. The body of the function is usually a block, which is enclosed in curly braces:
 
 ```
@@ -373,6 +415,92 @@ fun main(args: Array<String>){
 
     rollDiceTwo(4, (1..10))         // calling rollDiceTwo function with values
 }
+```
+
+Code example:
+```
+// function with returntype 'String'
+fun getGreeting(): String{
+    return "Hello Kotlin"
+}
+
+// Single Expression Function
+// string literal with only one return elemnt
+// same function as above
+fun getGreetingTwo(): String = "Hello Kotlin2"
+
+// Yet more simple way for single expression function
+// without any returntype
+// same function as above
+fun getGreetingThree() = "Hello Kotlin3"
+
+// 'Unit' returns nothing useful
+fun sayHello(): Unit{
+    println(getGreetingTwo())
+}
+
+// Function without 'Unit' and returntype
+// Same as previous function
+fun sayHelloTwo() {
+    println(getGreetingThree())
+}
+
+// Main function without returntype
+fun main(args: Array<String>){
+    println("Hello World")
+    println(getGreeting())
+    sayHello()
+    sayHelloTwo()
+}
+```
+**Output:** 
+```
+Hello World
+Hello Kotlin
+Hello Kotlin2
+Hello Kotlin3
+```
+
+**Function Parameters**
+
+Code example:
+```
+// function parameters
+fun sayHello(itemToGreet:String){
+    val msg = "Hello " + itemToGreet
+    println(msg)
+}
+
+// $ - using variable in string
+// same function as above
+fun sayHelloTwo(itemToGreet:String){
+    val msg = "Hello Two $itemToGreet"
+    println(msg)
+}
+
+// Single expression function
+// same function as above
+fun sayHelloThree(itemToGreet:String) = println("Hello $itemToGreet")
+
+// function with two parameters
+fun sayHelloFour(greeting:String, itemToGreet:String) = println("$greeting $itemToGreet")
+
+fun main(args: Array<String>){
+    var greeting = "Kotlin"
+    sayHello(greeting)
+    sayHello("Kotlin")
+    sayHelloTwo("World")
+    sayHelloThree("Universe")
+    sayHelloFour("Hey", "Kotlin")
+}
+```
+Output:
+```
+Hello Kotlin
+Hello Kotlin
+Hello Two World
+Hello Universe
+Hey Kotlin
 ```
 
 ## Lambda
