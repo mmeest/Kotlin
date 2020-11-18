@@ -1,12 +1,26 @@
 
 
-<img src="kotlin.jpg">
+<p align="center"><img src="kotlin.jpg"></p>
+
+<h1 align="center">
+    Kotlin
+</h1>
+
+<h3 align="center">  
+    <a target="_blank" href="https://developer.android.com/kotlin">Kotlin</a>
+	<span> · </span>
+	<a target="_blank" href="https://play.kotlinlang.org/">Kotlin Playground - write code online</a>
+	<span> · </span>
+	<a target="_blank" href="https://www.w3adda.com/kotlin-tutorial">w3adda - Kotlin tutorial</a>
+</h3>
+
 
 # Kotlin
 Kotlin programming language
 
 ## Contents
 
+- [Kotlin Playground](#kotlin-playground)
 - [Kotlin language support for VSCode](#kotlin-language-support-for-vscode)
 - [Code Runner for running different code snippets on VSCode](#code-runner-for-running-different-code-snippets-on-vscode)
 - [Comments](#comments)
@@ -15,12 +29,18 @@ Kotlin programming language
 - [NULL safety](#null-safety)
 - [If/Else](#if-else)
 - [When](#when)
+- [Conditional value assigning to variable](#conditional-value-assigning-to-variable)
 - [If Else When as Expression](#if-else-when-as-expression)
 - [Arrays](#arrays)
 - [Lists](#lists)
 - [Loops](#loops)
 - [Functions](#functions)
+- [Classes](#classes)
 - [Lambda](#lambda)
+
+## Kotlin Playground
+**For writing and testing Kotlin code online:** \
+https://play.kotlinlang.org/
 
 ## Kotlin language support for VSCode
 https://github.com/mathiasfrohlich/vscode-kotlin
@@ -99,12 +119,21 @@ fun main(args: Array<String>){
 
 ## Variables
 https://kotlinlang.org/docs/tutorials/kotlin-for-py/declaring-variables.html
-**var** \
-For declaring variables without type:
+**var** - changeable variable
 ```
 var number = 42
 var message = "Hello"
+var name: String = null
 ```
+
+**val** - not changeable variable
+```
+val firstName : String = "John"
+val x: String = "Hello"
+
+x = 3
+```
+
 Variable types: \
 https://kotlinlang.org/docs/reference/basic-types.html \
 * Numbers
@@ -135,14 +164,6 @@ Declaring variables with type:
 ```
 var number : Int = 42
 var message : String = "Hello"
-```
-
-**val** - for declaring variables with type:
-```
-val firstName : String = "John"
-
-val x: String
-x = 3
 ```
 
 **+** - for concatenating strings
@@ -253,6 +274,22 @@ fun main(args: Array<String>){
         }
     }
 }
+```
+
+## Conditional value assigning to variable
+With **if** condition:
+```
+    var greeting: String? = null
+    val greetingToPrint = if(greeting != null) greeting else "Hi"
+```
+
+Wit **When** condition:
+```
+    var greeting: String? = null
+    val greetingToPrint = when(greeting){
+        null -> "Hi"
+        else -> greeting
+    }
 ```
 
 ## If Else When as Expression
@@ -501,6 +538,52 @@ Hello Kotlin
 Hello Two World
 Hello Universe
 Hey Kotlin
+```
+
+## Classes
+https://kotlinlang.org/docs/tutorials/kotlin-for-py/classes.html \
+https://kotlinlang.org/docs/reference/classes.html \
+**class** - keyword for creating class \
+**init** - keyword for initilizing properties in a class
+
+* 1. Creating a class:
+```
+class Person
+```
+* 2. Creating instanceo of a class:
+```
+val person = Person()
+```
+* 3. Adding constructor to a class:
+```
+class Person constructor()
+```
+* 4. Constructor can be added with only parenthesis '()', without 'constructor' keyword:
+```
+class Person()
+```
+* 5. Defining parameters in a constructor:
+```
+class Person(_firstName: String, _lastName: String)
+```
+* 6. Initializing parameters in a class:
+```
+class Person(_firstName: String, _lastName: String){
+    val firstName: String
+    val lastName: String
+    
+    init{
+        firstName = _firstName
+        lastName = _lastName
+    }
+}
+
+OR
+
+class Person(_firstName: String, _lastName: String){
+    val firstName: String = _firstName
+    val lastName: String = _lastName
+}
 ```
 
 ## Lambda
