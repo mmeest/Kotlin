@@ -40,7 +40,7 @@
 https://play.kotlinlang.org/
 
 ## Kotlin language support for VSCode
-https://github.com/mathiasfrohlich/vscode-kotlin
+https://github.com/mathiasfrohlich/vscode-kotlin \
 **Kotlin language** by mathiasfrohlich
 
 ## Code Runner for running different code snippets on VSCode
