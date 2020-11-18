@@ -8,9 +8,9 @@
 
 <h3 align="center">  
     <a target="_blank" href="https://developer.android.com/kotlin">Kotlin</a>
-	<span> · </span>
+	<span> · · · </span>
 	<a target="_blank" href="https://play.kotlinlang.org/">Kotlin Playground - write code online</a>
-	<span> · </span>
+	<span> · · · </span>
 	<a target="_blank" href="https://www.w3adda.com/kotlin-tutorial">w3adda - Kotlin tutorial</a>
 </h3>
 
