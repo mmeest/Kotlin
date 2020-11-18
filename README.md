@@ -99,9 +99,9 @@ https://github.com/JetBrains/kotlin/releases/download/v1.2.21/kotlin-compiler-1.
 ## Comments
 // this is one line comment
 
-/* this
-is 
-multiline
+/* this \
+is \
+multiline \
 comment */
 
 ## Hello World
