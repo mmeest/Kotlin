@@ -115,7 +115,7 @@ fun main(args: Array<String>){
 3. Rightclick and select 'Run code'
 
 ## Variables
-https://kotlinlang.org/docs/tutorials/kotlin-for-py/declaring-variables.html
+https://kotlinlang.org/docs/tutorials/kotlin-for-py/declaring-variables.html \
 **var** - changeable variable
 ```
 var number = 42
