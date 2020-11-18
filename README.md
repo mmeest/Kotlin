@@ -3,7 +3,7 @@
 <p align="center"><img src="kotlin.jpg"></p>
 
 <h1 align="center">
-    Kotlin
+    Kotlin - programming language
 </h1>
 
 <h3 align="center">  
@@ -14,9 +14,6 @@
 	<a target="_blank" href="https://www.w3adda.com/kotlin-tutorial">w3adda - Kotlin tutorial</a>
 </h3>
 
-
-# Kotlin
-Kotlin programming language
 
 ## Contents
 
