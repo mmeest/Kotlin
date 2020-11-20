@@ -316,6 +316,8 @@ fun main(args: Array<String>){
 ## Arrays
 https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/
 
+**arrayOf** - keyword for defining an Array
+
 Defining an Array in Kotlin: \
 **val interestingThings = arrayOf("Kotlin", "Programming", "Books")** \
 interestingThings.size          \\ Size of Array \
@@ -360,13 +362,69 @@ fun main(args: Array<String>){
 
 ## Lists
 
+**listOf** - defining a constant List
+**mutableListOf** - defining mutable list
+
 **Defyin a List:** \
-val interestingThings = listOf("Kotlin", "Programming", "Books")
+val interestingThings = mutableListOf("Kotlin", "Programming", "Books")
+
+**Adding element to list** \
+interestingThings.add("Cats")
 
 **Accessing element in a list**
 * interestingThings[0] \
 or \
 * interestingThings.get(0)
+
+Code example:
+```
+fun main(args: Array<String>){
+    val interestingThings = listOf("Kotlin", "Programming", "Comics")
+
+    // accessing element in a list with get function
+    println(interestingThings.get(0))
+    // accessing list element with index
+    println(interestingThings[0])
+
+    // iterate thru elements
+    interestingThings.forEach { interestingThing -> 
+        print(interestingThing)
+    }
+}
+```
+Output:
+```
+Kotlin
+Kotlin
+KotlinProgrammingComics
+```
+
+## Map
+
+**mapOf** - keyword for defining a constant map
+**mutableMapOf** - defining mutable map
+
+Adding element to map:\
+myMap.put(4, "d")
+
+In maps colletion data is saved by pairs(key, value). For example:\
+* val map = mapOf(1 to "a", 2 to "b", 3 to "c")
+
+Code example:
+```
+fun main(args: Array<String>){
+    val map = mapOf(1 to "a", 2 to "b", 3 to "c")
+
+    // iterate thru map
+    map.forEach { key, value -> println("$key -> $value")}
+}
+```
+Output:
+```
+1 -> a
+2 -> b
+3 -> c
+```
 
 ## Loops
 https://kotlinlang.org/docs/tutorials/kotlin-for-py/loops.html
