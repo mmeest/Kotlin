@@ -31,6 +31,7 @@
 - [Arrays](#arrays)
 - [Lists](#lists)
 - [Loops](#loops)
+- [Vararg](#vararg---variable-number-of-arguments)
 - [Functions](#functions)
 - [Classes](#classes)
 - [Lambda](#lambda)
@@ -426,6 +427,26 @@ Output:
 3 -> c
 ```
 
+Code example:
+```
+fun sayHello(greeting:String, itemsToGreet: List<String>){
+    itemsToGreet.forEach { itemToGreet ->
+         println("$greeting $itemToGreet")
+    }
+}
+
+fun main(args: Array<String>){
+    val interestingThings = listOf("Kotlin", "Programming", "Comics")
+    sayHello("Hi", interestingThings)
+}
+```
+Output:
+```
+Hi Kotlin
+Hi Programming
+Hi Comics
+```
+
 ## Loops
 https://kotlinlang.org/docs/tutorials/kotlin-for-py/loops.html
 
@@ -473,6 +494,50 @@ fun main(args: Array<String>){
 }
 ```
 
+## Vararg - variable number of arguments
+https://kotlinlang.org/docs/reference/functions.html
+
+Code example:
+```
+fun sayHello(greeting:String, vararg itemsToGreet: String){
+    itemsToGreet.forEach { itemToGreet ->
+         println("$greeting $itemToGreet")
+    }
+}
+
+fun main(args: Array<String>){
+    sayHello("Hi", "Kotlin", "Programming", "Books")
+}
+```
+Output:
+```
+Hi Kotlin
+Hi Programming
+Hi Books
+```
+
+* - to pass in array as a vararg strings
+```
+fun sayHello(greeting:String, vararg itemsToGreet: String){
+    itemsToGreet.forEach { itemToGreet ->
+         println("$greeting $itemToGreet")
+    }
+}
+
+fun main(args: Array<String>){
+    val interestingThings = arrayOf("Kotlin", "Programming", "Comics")
+
+    sayHello("Hi", *interestingThings)
+}
+```
+Output:
+```
+Hi Kotlin
+Hi Programming
+Hi Comics
+```
+
+
 ## Functions
 https://kotlinlang.org/docs/tutorials/kotlin-for-py/functions.html
 
@@ -486,6 +551,9 @@ fun happyBirthday(name: String, age: Int): String {
     return "Happy ${age}th birthday, $name!"
 }
 ```
+
+**=** - for one line function:
+* fun greetingPerson(greeting: String, name: String) = println("$greeting $name")
 
 Code example:
 ```
@@ -638,6 +706,22 @@ OR
 class Person(_firstName: String, _lastName: String){
     val firstName: String = _firstName
     val lastName: String = _lastName
+}
+
+OR
+
+class Person(val firstName: STring, val lastName: String){    
+}
+```
+Printout instance value:
+```
+fun main(args: Array<String>){
+    val person = Person("John", "Smith")
+    println(person.lastName)
+}
+
+class Person(val firstName: String, val lastName: String){
+
 }
 ```
 
